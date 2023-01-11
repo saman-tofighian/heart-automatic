@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #123;
+            overflow: hidden;
+        }
+        h1{
+            font-size: 8rem;
+            font-family: cursive;
+            color: #Fff;
+            z-index: 999;
+        }
+        span{
+            display: block;
+            background-size: 100% 100%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background-image: url(heart.webp);
+            transition: 1s;
+            animation-duration: 8s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+        @keyframes span {
+            0%{transform: translate(-50%, -50%)scale(0);}
+            20%{transform: translate(-50%, -50%)scale(1);}
+            40%{transform: translate(-50%, -50%)scale(.7);}
+            50%{transform: translate(-50%, -50%)scale(1)}
+            60%{transform: translate(-50%, -200%)scale(.7)}
+            70%{transform: translate(-50%, -400%)scale(1)}
+            80%{transform: translate(-50%, -600%)scale(.7)}
+            90%{transform: translate(-50%, -800%)scale(1)}
+            100%{transform: translate(-50%, -1000%)scale(1);}
+        }
+    </style>
+</head>
+<body>
+    <h1>Saman</h1>
+</body>
+<script>
+    let x,y
+    document.getElementsByTagName('body')[0].addEventListener('mousemove', (event)=>{
+        x = event.clientX
+        y = event.clientY
+        let _span = document.createElement('span')
+        let _num = Math.floor((Math.random()*100)+50)
+        let _op = Math.random()
+        _span.style.width = _num + 'px'
+        _span.style.height = _num + 'px'
+        _span.style.top = y + 'px'
+        _span.style.left = x + 'px'
+        _span.style.opacity = _op
+        _span.style.animationName = 'span'
+        document.getElementsByTagName('body')[0].appendChild(_span)
+    })
+</script>
+</html>
